@@ -1,0 +1,79 @@
+<!-- Page du tableau de bord -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Tableau de bord</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <button type="button" class="btn btn-sm btn-outline-secondary">Jour</button>
+      <button type="button" class="btn btn-sm btn-outline-secondary active">Mois</button>
+      <button type="button" class="btn btn-sm btn-outline-secondary">Année</button>
+    </div>
+  </div>
+</div>
+
+<!-- Vue d'ensemble financière -->
+<div class="row mb-4">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Solde actuel</h5>
+        <h2 class="card-text text-primary" id="current-balance">0,00 €</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Revenus du mois</h5>
+        <h2 class="card-text text-success" id="monthly-income">0,00 €</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Dépenses du mois</h5>
+        <h2 class="card-text text-danger" id="monthly-expenses">0,00 €</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Graphiques -->
+<div class="row mb-4">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Flux de trésorerie</h5>
+        <canvas id="cash-flow-chart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Répartition des dépenses</h5>
+        <canvas id="expense-chart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Budgets et objectifs d'épargne -->
+<div class="row mb-4">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">État des budgets</h5>
+        <div id="budget-progress"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Objectifs d'épargne</h5>
+        <div id="savings-goals-progress"></div>
+      </div>
+    </div>
+  </div>
+</div>
