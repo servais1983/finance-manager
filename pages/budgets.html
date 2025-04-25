@@ -1,0 +1,59 @@
+<!-- Page des budgets -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Budgets</h1>
+</div>
+
+<!-- Conteneur pour les alertes -->
+<div id="alerts-container"></div>
+
+<div class="row">
+  <!-- Formulaire d'ajout de budget -->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="mb-0">Créer un budget</h5>
+      </div>
+      <div class="card-body">
+        <form id="budget-form">
+          <div class="mb-3">
+            <label for="budget-category" class="form-label">Catégorie</label>
+            <select class="form-select" id="budget-category" required>
+              <option value="">Sélectionner une catégorie</option>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label for="budget-amount" class="form-label">Montant du budget</label>
+            <div class="input-group">
+              <span class="input-group-text">€</span>
+              <input type="number" class="form-control" id="budget-amount" step="0.01" min="0.01" required>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="budget-period" class="form-label">Période</label>
+            <select class="form-select" id="budget-period" required>
+              <option value="monthly">Mensuel</option>
+              <option value="quarterly">Trimestriel</option>
+              <option value="yearly">Annuel</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="btn btn-primary w-100">Créer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Liste des budgets -->
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="mb-0">Vos budgets</h5>
+      </div>
+      <div class="card-body">
+        <div id="budgets-list"><!-- Liste des budgets sera chargée ici --></div>
+      </div>
+    </div>
+  </div>
+</div>
