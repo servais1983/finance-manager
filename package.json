@@ -1,0 +1,67 @@
+{
+  "name": "finance-manager",
+  "version": "1.0.0",
+  "description": "Application de gestion financière personnelle pour Windows 11",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "finance",
+    "budget",
+    "économies",
+    "gestion financière"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "jest": "^29.7.0",
+    "spectron": "^19.0.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.0",
+    "electron-store": "^8.1.0",
+    "nedb": "^1.8.0",
+    "bootstrap": "^5.3.2"
+  },
+  "build": {
+    "appId": "com.finance.manager",
+    "productName": "Finance Manager",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icons/icon.ico"
+    }
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/__tests__/**/*.js", 
+      "**/?(*.)+(spec|test).js"
+    ],
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "collectCoverageFrom": [
+      "js/**/*.js",
+      "!**/node_modules/**"
+    ],
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!electron)"
+    ]
+  }
+}
