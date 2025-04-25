@@ -1,0 +1,178 @@
+<!-- Page des paramètres -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Paramètres</h1>
+</div>
+
+<!-- Conteneur pour les alertes -->
+<div id="alerts-container"></div>
+
+<div class="row">
+  <div class="col-lg-8">
+    <!-- Paramètres généraux -->
+    <div class="card mb-4 settings-section">
+      <div class="card-header">
+        <h5 class="mb-0">Paramètres généraux</h5>
+      </div>
+      <div class="card-body">
+        <form id="settings-form">
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="setting-currency" class="form-label">Devise</label>
+              <select class="form-select" id="setting-currency">
+                <option value="EUR">Euro (€)</option>
+                <option value="USD">Dollar américain ($)</option>
+                <option value="GBP">Livre sterling (£)</option>
+                <option value="CHF">Franc suisse (CHF)</option>
+                <option value="CAD">Dollar canadien ($)</option>
+              </select>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="setting-language" class="form-label">Langue</label>
+              <select class="form-select" id="setting-language">
+                <option value="fr">Français</option>
+                <option value="en">Anglais</option>
+                <option value="es">Espagnol</option>
+                <option value="de">Allemand</option>
+                <option value="it">Italien</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="setting-theme" class="form-label">Thème</label>
+              <select class="form-select" id="setting-theme">
+                <option value="light">Clair</option>
+                <option value="dark">Sombre</option>
+                <option value="blue">Bleu</option>
+              </select>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="setting-start-page" class="form-label">Page de démarrage</label>
+              <select class="form-select" id="setting-start-page">
+                <option value="dashboard">Tableau de bord</option>
+                <option value="transactions">Transactions</option>
+                <option value="budgets">Budgets</option>
+                <option value="goals">Objectifs d'épargne</option>
+                <option value="reports">Rapports</option>
+              </select>
+            </div>
+          </div>
+          
+          <h6 class="mt-4 mb-3">Notifications</h6>
+          
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="setting-notifications">
+            <label class="form-check-label" for="setting-notifications">
+              Activer les notifications
+            </label>
+          </div>
+          
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="setting-budget-alerts">
+            <label class="form-check-label" for="setting-budget-alerts">
+              Alertes lorsqu'un budget est dépassé
+            </label>
+          </div>
+          
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="setting-goal-alerts">
+            <label class="form-check-label" for="setting-goal-alerts">
+              Alertes pour les objectifs d'épargne atteints
+            </label>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Enregistrer les paramètres</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Gestion des catégories -->
+    <div class="card mb-4 settings-section">
+      <div class="card-header">
+        <h5 class="mb-0">Gestion des catégories</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h6>Catégories de revenus</h6>
+            
+            <form id="add-income-category-form" class="mb-3">
+              <div class="input-group">
+                <input type="text" class="form-control" id="new-income-category" placeholder="Nouvelle catégorie..." required>
+                <button class="btn btn-outline-primary" type="submit">Ajouter</button>
+              </div>
+            </form>
+            
+            <ul id="income-categories-list" class="list-group">
+              <!-- Liste des catégories de revenus -->
+            </ul>
+          </div>
+          
+          <div class="col-md-6">
+            <h6>Catégories de dépenses</h6>
+            
+            <form id="add-expense-category-form" class="mb-3">
+              <div class="input-group">
+                <input type="text" class="form-control" id="new-expense-category" placeholder="Nouvelle catégorie..." required>
+                <button class="btn btn-outline-primary" type="submit">Ajouter</button>
+              </div>
+            </form>
+            
+            <ul id="expense-categories-list" class="list-group">
+              <!-- Liste des catégories de dépenses -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Gestion des données -->
+    <div class="card mb-4 settings-section">
+      <div class="card-header">
+        <h5 class="mb-0">Gestion des données</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <button id="export-data" class="btn btn-outline-primary w-100 mb-3">
+              <i class="bi bi-download"></i> Exporter les données
+            </button>
+          </div>
+          
+          <div class="col-md-4">
+            <button id="import-data" class="btn btn-outline-secondary w-100 mb-3">
+              <i class="bi bi-upload"></i> Importer des données
+            </button>
+          </div>
+          
+          <div class="col-md-4">
+            <button id="reset-data" class="btn btn-outline-danger w-100 mb-3">
+              <i class="bi bi-trash"></i> Réinitialiser les données
+            </button>
+          </div>
+        </div>
+        
+        <div class="alert alert-warning">
+          <strong>Attention :</strong> L'exportation et l'importation de données concernent toutes vos transactions, budgets, objectifs d'épargne et paramètres. La réinitialisation supprimera toutes vos données de manière irréversible.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-lg-4">
+    <!-- À propos -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <h5 class="mb-0">À propos</h5>
+      </div>
+      <div class="card-body">
+        <h6>Finance Manager</h6>
+        <p>Version 1.0.0</p>
+        <p>Une application de gestion financière personnelle pour vous aider à gérer vos finances, établir des budgets et atteindre vos objectifs d'épargne.</p>
+      </div>
+    </div>
+  </div>
+</div>
