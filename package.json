@@ -36,6 +36,15 @@
     "win": {
       "target": "nsis",
       "icon": "assets/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "asar": true,
+    "forceCodeSigning": false,
+    "directories": {
+      "buildResources": "assets"
     }
   },
   "jest": {
