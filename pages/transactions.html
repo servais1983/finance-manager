@@ -1,0 +1,110 @@
+<!-- Page des transactions -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Transactions</h1>
+</div>
+
+<!-- Conteneur pour les alertes -->
+<div id="alerts-container"></div>
+
+<div class="row">
+  <!-- Formulaire d'ajout de transaction -->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="mb-0">Ajouter une transaction</h5>
+      </div>
+      <div class="card-body">
+        <form id="transaction-form">
+          <div class="mb-3">
+            <label for="transaction-type" class="form-label">Type</label>
+            <select class="form-select" id="transaction-type" required>
+              <option value="income">Revenu</option>
+              <option value="expense">Dépense</option>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label for="transaction-category" class="form-label">Catégorie</label>
+            <select class="form-select" id="transaction-category" required>
+              <option value="">Sélectionner une catégorie</option>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label for="transaction-amount" class="form-label">Montant</label>
+            <div class="input-group">
+              <span class="input-group-text">€</span>
+              <input type="number" class="form-control" id="transaction-amount" step="0.01" min="0.01" required>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="transaction-description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="transaction-description" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="transaction-date" class="form-label">Date</label>
+            <input type="date" class="form-control" id="transaction-date" required>
+          </div>
+          
+          <button type="submit" class="btn btn-primary w-100">Ajouter</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Liste des transactions -->
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Liste des transactions</h5>
+        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#filters-collapse" aria-expanded="false">
+          <i class="bi bi-funnel"></i> Filtres
+        </button>
+      </div>
+      
+      <!-- Filtres -->
+      <div class="collapse" id="filters-collapse">
+        <div class="card-body bg-light">
+          <form id="transaction-filters" class="row g-3">
+            <div class="col-md-3">
+              <label for="filter-type" class="form-label">Type</label>
+              <select class="form-select" id="filter-type">
+                <option value="">Tous</option>
+                <option value="income">Revenus</option>
+                <option value="expense">Dépenses</option>
+              </select>
+            </div>
+            
+            <div class="col-md-3">
+              <label for="filter-category" class="form-label">Catégorie</label>
+              <select class="form-select" id="filter-category">
+                <option value="">Toutes les catégories</option>
+              </select>
+            </div>
+            
+            <div class="col-md-3">
+              <label for="filter-start-date" class="form-label">Date de début</label>
+              <input type="date" class="form-control" id="filter-start-date">
+            </div>
+            
+            <div class="col-md-3">
+              <label for="filter-end-date" class="form-label">Date de fin</label>
+              <input type="date" class="form-control" id="filter-end-date">
+            </div>
+            
+            <div class="col-12 d-flex justify-content-end">
+              <button type="reset" class="btn btn-outline-secondary me-2" id="reset-filters">Réinitialiser</button>
+              <button type="submit" class="btn btn-primary">Filtrer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="card-body">
+        <div id="transactions-list"><!-- Liste des transactions sera chargée ici --></div>
+      </div>
+    </div>
+  </div>
+</div>
