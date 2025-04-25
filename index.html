@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Manager</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar de navigation -->
+      <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+        <div class="position-sticky">
+          <div class="sidebar-header p-3">
+            <h3>Finance Manager</h3>
+          </div>
+          <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action active" data-page="dashboard">Tableau de bord</a>
+            <a href="#" class="list-group-item list-group-item-action" data-page="transactions">Transactions</a>
+            <a href="#" class="list-group-item list-group-item-action" data-page="budgets">Budgets</a>
+            <a href="#" class="list-group-item list-group-item-action" data-page="goals">Objectifs d'épargne</a>
+            <a href="#" class="list-group-item list-group-item-action" data-page="reports">Rapports</a>
+            <a href="#" class="list-group-item list-group-item-action" data-page="settings">Paramètres</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Contenu principal -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <!-- Différentes pages seront chargées ici -->
+        <div id="page-content">
+          <!-- Page du tableau de bord (par défaut) -->
+          <div id="dashboard" class="page active">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">Tableau de bord</h1>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Jour</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary active">Mois</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Année</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vue d'ensemble financière -->
+            <div class="row mb-4">
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Solde actuel</h5>
+                    <h2 class="card-text text-primary" id="current-balance">0,00 €</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Revenus du mois</h5>
+                    <h2 class="card-text text-success" id="monthly-income">0,00 €</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Dépenses du mois</h5>
+                    <h2 class="card-text text-danger" id="monthly-expenses">0,00 €</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Graphiques -->
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Flux de trésorerie</h5>
+                    <canvas id="cash-flow-chart"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Répartition des dépenses</h5>
+                    <canvas id="expense-chart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Budgets et objectifs d'épargne -->
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">État des budgets</h5>
+                    <div id="budget-progress"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Objectifs d'épargne</h5>
+                    <div id="savings-goals-progress"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Les autres pages seront créées dans des fichiers séparés -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>
