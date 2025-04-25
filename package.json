@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win",
+    "build": "electron-builder --win --publish never",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -34,7 +34,8 @@
     "appId": "com.finance.manager",
     "productName": "Finance Manager",
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "sign": false
     },
     "nsis": {
       "oneClick": false,
