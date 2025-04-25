@@ -1,0 +1,257 @@
+/* Styles principaux de l'application */
+
+/* Variables CSS */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --sidebar-width: 250px;
+  --header-height: 60px;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Base */
+body {
+  font-family: var(--font-family);
+  overflow-x: hidden;
+}
+
+/* Thèmes */
+.theme-light {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --sidebar-bg: #f8f9fa;
+  --sidebar-active: #e9ecef;
+  --card-bg: #ffffff;
+  --border-color: #dee2e6;
+}
+
+.theme-dark {
+  --bg-color: #212529;
+  --text-color: #f8f9fa;
+  --sidebar-bg: #343a40;
+  --sidebar-active: #495057;
+  --card-bg: #343a40;
+  --border-color: #495057;
+}
+
+.theme-blue {
+  --bg-color: #e9f2ff;
+  --text-color: #0c2c52;
+  --sidebar-bg: #d4e8ff;
+  --sidebar-active: #a9d1ff;
+  --card-bg: #f0f7ff;
+  --border-color: #c5d9f1;
+}
+
+/* Application des thèmes */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+/* Sidebar */
+#sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: all 0.3s;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+  padding: 20px;
+  background: var(--primary-color);
+  color: white;
+}
+
+.list-group-item {
+  background-color: var(--sidebar-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.list-group-item.active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Contenu principal */
+main {
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+  transition: all 0.3s;
+}
+
+/* Pages */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Carte récapitulative */
+.card {
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Formulaires */
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Boutons */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+/* Progrès */
+.progress {
+  height: 8px;
+  border-radius: 4px;
+  background-color: #e9ecef;
+}
+
+/* Alertes */
+#alerts-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+  max-width: 350px;
+}
+
+/* Graphiques */
+canvas {
+  max-width: 100%;
+}
+
+/* Tableaux */
+.table th {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+/* Adaptations pour mobiles */
+@media (max-width: 768px) {
+  #sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  main {
+    margin-left: 0;
+  }
+  
+  .sidebar-header {
+    padding: 10px;
+  }
+  
+  .list-group-item {
+    padding: 8px 15px;
+  }
+}
+
+/* Pages spécifiques */
+
+/* Dashboard */
+#dashboard .card-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Budgets */
+.budget-item,
+.goal-item {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.budget-item:last-child,
+.goal-item:last-child {
+  border-bottom: none;
+}
+
+/* Objectifs d'épargne */
+.goal-header {
+  background-color: rgba(23, 162, 184, 0.1);
+}
+
+/* Rapports */
+.report-card {
+  margin-bottom: 30px;
+}
+
+.report-card .card-header {
+  background-color: rgba(0, 123, 255, 0.1);
+  font-weight: 600;
+}
+
+/* Settings */
+.settings-section {
+  margin-bottom: 40px;
+}
+
+.settings-section h4 {
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Animation pour les chargements */
+.loading-spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 0.25em solid rgba(0, 123, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
