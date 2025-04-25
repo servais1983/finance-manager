@@ -1,0 +1,69 @@
+<!-- Page des objectifs d'épargne -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Objectifs d'épargne</h1>
+</div>
+
+<!-- Conteneur pour les alertes -->
+<div id="alerts-container"></div>
+
+<div class="row">
+  <!-- Formulaire d'ajout d'objectif d'épargne -->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="mb-0">Créer un objectif d'épargne</h5>
+      </div>
+      <div class="card-body">
+        <form id="goal-form">
+          <div class="mb-3">
+            <label for="goal-name" class="form-label">Nom de l'objectif</label>
+            <input type="text" class="form-control" id="goal-name" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="goal-target" class="form-label">Montant cible</label>
+            <div class="input-group">
+              <span class="input-group-text">€</span>
+              <input type="number" class="form-control" id="goal-target" step="0.01" min="0.01" required>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="goal-current" class="form-label">Montant déjà épargné (optionnel)</label>
+            <div class="input-group">
+              <span class="input-group-text">€</span>
+              <input type="number" class="form-control" id="goal-current" step="0.01" min="0">
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="goal-target-date" class="form-label">Date cible (optionnel)</label>
+            <input type="date" class="form-control" id="goal-target-date">
+          </div>
+          
+          <div class="mb-3">
+            <label for="goal-monthly-contribution" class="form-label">Contribution mensuelle prévue</label>
+            <div class="input-group">
+              <span class="input-group-text">€</span>
+              <input type="number" class="form-control" id="goal-monthly-contribution" step="0.01" min="0">
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary w-100">Créer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Liste des objectifs d'épargne -->
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="mb-0">Vos objectifs d'épargne</h5>
+      </div>
+      <div class="card-body">
+        <div id="goals-list"><!-- Liste des objectifs sera chargée ici --></div>
+      </div>
+    </div>
+  </div>
+</div>
