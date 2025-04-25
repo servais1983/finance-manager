@@ -34,8 +34,7 @@
     "appId": "com.finance.manager",
     "productName": "Finance Manager",
     "win": {
-      "target": "nsis",
-      "icon": "assets/icons/icon.ico"
+      "target": "nsis"
     },
     "nsis": {
       "oneClick": false,
