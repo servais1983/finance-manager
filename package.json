@@ -35,7 +35,7 @@
     "productName": "Finance Manager",
     "win": {
       "target": "nsis",
-      "icon": "assets/icons/icon.png"
+      "icon": "assets/icons/icon.ico"
     },
     "nsis": {
       "oneClick": false,
