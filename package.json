@@ -6,6 +6,7 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --win --publish never",
+    "build:portable": "node build-win.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -34,7 +35,7 @@
     "appId": "com.finance.manager",
     "productName": "Finance Manager",
     "win": {
-      "target": "nsis",
+      "target": ["portable", "nsis"],
       "sign": false
     },
     "nsis": {
