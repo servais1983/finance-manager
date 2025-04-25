@@ -1,0 +1,155 @@
+<!-- Page des rapports -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Rapports financiers</h1>
+</div>
+
+<!-- Conteneur pour les alertes -->
+<div id="alerts-container"></div>
+
+<!-- Contrôles des rapports -->
+<div class="card mb-4">
+  <div class="card-body">
+    <div class="row g-3">
+      <div class="col-md-4">
+        <label for="report-period" class="form-label">Période</label>
+        <select class="form-select" id="report-period">
+          <option value="month">Mois en cours</option>
+          <option value="quarter">Trimestre en cours</option>
+          <option value="year">Année en cours</option>
+          <option value="all">Toutes les données</option>
+        </select>
+      </div>
+      
+      <div class="col-md-4">
+        <label for="report-year" class="form-label">Année</label>
+        <select class="form-select" id="report-year">
+          <!-- Les années seront chargées dynamiquement -->
+        </select>
+      </div>
+      
+      <div class="col-md-4">
+        <label for="report-month" class="form-label">Mois</label>
+        <select class="form-select" id="report-month">
+          <option value="1">Janvier</option>
+          <option value="2">Février</option>
+          <option value="3">Mars</option>
+          <option value="4">Avril</option>
+          <option value="5">Mai</option>
+          <option value="6">Juin</option>
+          <option value="7">Juillet</option>
+          <option value="8">Août</option>
+          <option value="9">Septembre</option>
+          <option value="10">Octobre</option>
+          <option value="11">Novembre</option>
+          <option value="12">Décembre</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Rapport 1: Revenus vs Dépenses -->
+<div class="card mb-4 report-card">
+  <div class="card-header">
+    <h5 class="mb-0">Revenus vs Dépenses</h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="summary-box p-3 border rounded mb-3">
+          <h6 class="text-muted">Revenus totaux</h6>
+          <h3 id="report-income" class="text-success">0,00 €</h3>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="summary-box p-3 border rounded mb-3">
+          <h6 class="text-muted">Dépenses totales</h6>
+          <h3 id="report-expenses" class="text-danger">0,00 €</h3>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="summary-box p-3 border rounded mb-3">
+          <h6 class="text-muted">Balance</h6>
+          <h3 id="report-balance">0,00 €</h3>
+        </div>
+      </div>
+    </div>
+    
+    <div class="chart-container" style="position: relative; height: 300px;">
+      <canvas id="income-vs-expense-chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- Rapport 2: Distribution par catégorie -->
+<div class="card mb-4 report-card">
+  <div class="card-header">
+    <h5 class="mb-0">Distribution par catégorie</h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <h6 class="text-center mb-3">Revenus par catégorie</h6>
+        <div class="chart-container" style="position: relative; height: 300px;">
+          <canvas id="income-categories-chart"></canvas>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h6 class="text-center mb-3">Dépenses par catégorie</h6>
+        <div class="chart-container" style="position: relative; height: 300px;">
+          <canvas id="expense-categories-chart"></canvas>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-4">
+      <h6>Détail des dépenses par catégorie</h6>
+      <div class="table-responsive">
+        <table id="expense-categories-table" class="table table-sm table-hover">
+          <!-- Le tableau sera chargé dynamiquement -->
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Rapport 3: Tendances mensuelles -->
+<div class="card mb-4 report-card">
+  <div class="card-header">
+    <h5 class="mb-0">Tendances mensuelles</h5>
+  </div>
+  <div class="card-body">
+    <div class="chart-container" style="position: relative; height: 400px;">
+      <canvas id="monthly-trends-chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- Rapport 4: Taux d'épargne -->
+<div class="card mb-4 report-card">
+  <div class="card-header">
+    <h5 class="mb-0">Taux d'épargne</h5>
+  </div>
+  <div class="card-body">
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="summary-box p-3 border rounded">
+          <h6 class="text-muted">Taux d'épargne moyen (explicite)</h6>
+          <h3 id="avg-savings-rate-1" class="text-info">0%</h3>
+          <small class="text-muted">Basé sur les transactions de la catégorie "Épargne"</small>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="summary-box p-3 border rounded">
+          <h6 class="text-muted">Taux d'épargne moyen (net)</h6>
+          <h3 id="avg-savings-rate-2" class="text-info">0%</h3>
+          <small class="text-muted">Basé sur la différence entre revenus et dépenses</small>
+        </div>
+      </div>
+    </div>
+    
+    <div class="chart-container" style="position: relative; height: 300px;">
+      <canvas id="savings-rate-chart"></canvas>
+    </div>
+  </div>
+</div>
